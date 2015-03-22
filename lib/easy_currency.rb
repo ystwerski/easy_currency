@@ -4,7 +4,7 @@ module EasyCurrency
   
   class Exchange_rate
 
-  	def initialize(currency_1.upcase, currency_2.upcase)
+  	def initialize(currency_1, currency_2)
   		@exchange_rates = Unirest.get("http://api.fixer.io/latest?base=#{currency_1}").body
   		@rate = @exchange_rates["rates"]["#{currency_2}"]
   		return @rate
