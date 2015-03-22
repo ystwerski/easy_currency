@@ -2,27 +2,46 @@ require "easy_currency/version"
 
 module EasyCurrency
   
-  class Exchange_rate
+  class ExchangeRate
 
-  	def initialize(currency_1, currency_2)
-  		@exchange_rates = Unirest.get("http://api.fixer.io/latest?base=#{currency_1}").body
-  		@rate = @exchange_rates["rates"]["#{currency_2}"]
+  	def initialize(currency_name)
+  		@exchange_rates = Unirest.get("http://api.fixer.io/latest?base=#{currency_name}").body
+  		@base_rate = @exchange_rates["base"]
+  		return @base_rate
+  	end
+
+  	def change_base_rate(currency_name)
+  		@exchange_rates = Unirest.get("http://api.fixer.io/latest?base=#{currency_name}").body
+  		@base_rate = @exchange_rates["base"]
+  		return @base_rate
+  	end
+
+  	def rate_for(currency_name)
+  		@rate = @exchange_rates["rates"][currency_name]
   		return @rate
   	end
 
-  	def rate
-  		return @rate
+  	def options_for_base
+  		@options = []
+  		@exchange_rates["rates"].each do |name, rate|
+  			@options << name
+  		end
+  		return @options.join(" | ")
+  	end
+
+  	def base_rate
+  		return @base_rate
   	end
 
   	def self.options
 		options = Unirest.get("http://api.fixer.io/latest?").body["rates"]
-		@options = []
+		all_options = []
 		options.each do |option, option_rate|
-			@options << option
+			all_options << option
 		end
-		@options << "EUR"
-		@options = @options.sort
-		return "These are your currency options. #{@options}. Please cmd: Exchange_rate.new(one_of_your_options, the_other_one_of_your_options) to get the rate of how much options 2's will option 1 buy you."
+		all_options << "EUR"
+		all_options = all_options.sort
+		return all_options.join(" | ")
 	end
 
 
