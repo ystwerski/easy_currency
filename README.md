@@ -28,7 +28,7 @@ To create a new object, you gotta do
 
 	$ your_variable = EasyCurrency::ExchangeRate.new("whatever_currency_you_want_to_be_the_base_rate")
 
-The Base Rate is the currency that you want to start comparing to all the other different types of currencies. For example, if you wanted to know how many GBP (Great British Pounds) you can get for your USD (United States Dollar), the USD would be your base rate, and GBP along with any other currency would be your non-base rate (don't know if that is what they are actually called, but you get what I mean).
+The Base Rate is the currency that you want to use to start comparing to all the other different types of currencies. For example, if you wanted to know how many GBP (Great British Pound) you can get for your USD (United States Dollar), the USD would be your base rate, and GBP along with any other currency would be your non-base rate (don't know if that is what they are actually called, but you get what I mean).
 
 For a list of all rates that you can choose from to make them a base or non-base rate, just do 
 
@@ -49,7 +49,7 @@ And finally, let's say you are just sick and tired of the base rate you chose. Y
 	$ your_new_and_improved_totaly_awesome_base_rate_variable = your_variable.change_base_rate("whatever_you_want_the_new_totaly_awesome_base_rate_to_be")
 
 REMEMBER. VERY IMPORTANT. 
-Whenever you put any rate into any parameter - always make the rate capital letters and always make it into a string!!!!
+Whenever you put any rate into any parameter - always make the rate is capital letters and always make it into a string!!!!
 
 	$ ("USD") ("GBP") ("EUR") ("ILS")
 
