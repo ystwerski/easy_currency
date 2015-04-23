@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Shlomo Twerski"]
   spec.email         = ["ystwerski@gmail.com"]
   spec.summary       = %q{Allows your app to use current exchange rates.}
-  spec.description   = %q{If your app needs the use of current exchange rates: Either just statically to display them for the user or dynamically to receive info from the user and return rates accordingly, this is the app!}
+  spec.description   = %q{If your app needs the use of current exchange rates: Either just statically - to display them for the user or dynamically - to receive info from the user and return rates accordingly, this is the app!}
   spec.homepage      = ""
   spec.license       = "MIT"
 

@@ -1,4 +1,5 @@
 require "easy_currency/version"
+require 'unirest'
 
 module EasyCurrency
   
@@ -34,15 +35,15 @@ module EasyCurrency
   	end
 
   	def self.options
-		options = Unirest.get("http://api.fixer.io/latest?").body["rates"]
-		all_options = []
-		options.each do |option, option_rate|
-			all_options << option
-		end
-		all_options << "EUR"
-		all_options = all_options.sort
-		return all_options.join(" | ")
-	end
+  		options = Unirest.get("http://api.fixer.io/latest?").body["rates"]
+  		all_options = []
+  		options.each do |option, option_rate|
+  			all_options << option
+  		end
+  		all_options << "EUR"
+  		all_options = all_options.sort
+  		return all_options.join(" | ")
+	  end
 
 
 
