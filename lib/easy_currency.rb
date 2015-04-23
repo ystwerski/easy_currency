@@ -30,7 +30,7 @@ module EasyCurrency
   		return @options.join(" | ")
   	end
 
-  	def base_rate
+  	def base_rate?
   		return @base_rate
   	end
 
